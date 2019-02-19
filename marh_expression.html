@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Click the button to evaluate mathematical expressions.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+  var x = ((2*3)+4/(5*2))*4;
+  var a = eval("x") ;
+
+  document.getElementById("demo").innerHTML = a;
+}
+</script>
+
+</body>
+</html>
