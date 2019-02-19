@@ -10,7 +10,8 @@ $lr_conn	= new mysqli($servername, $username, $password, $dbname);
 if ($lr_conn->connect_error) {
     die("Connection failed");
 }
-if($_POST["token"] === 'insert'){
+$token = isset($_POST["token"]) ? $_POST["token"] : false;
+if($token == 'insert'){
 	$First_Name 	= $_POST["First_Name"];
 	$Last_Name 		= $_POST['Last_Name'];
 	$Email_Id 		= $_POST['Email_Id'];
@@ -18,7 +19,7 @@ if($_POST["token"] === 'insert'){
 	$Password 		= $_POST['Password'];
 	$result 		= insterData($lr_conn,$First_Name,$Last_Name,$Email_Id,$Phone_Number,$Password);
 	echo json_encode($result);
-}else if($_POST["token"] == 'get'){
+}else if($token == 'get'){
 	$result			= false;
 	$Name 	= $_POST["Name"];
 	$result 		= getData($lr_conn,$Name);
